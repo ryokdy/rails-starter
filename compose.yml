@@ -6,10 +6,11 @@ services:
       dockerfile: Dockerfile_dev
     tty: true
     stdin_open: true
-    command: bin/rails server -b 0.0.0.0
+    command: bin/rails server -b 'ssl://0.0.0.0:443?key=certs/localhost-key.pem&cert=certs/localhost.pem'
     env_file:
       - ./environments/rails.env
     volumes:
       - ./rails:/rails:delegated
     ports:
       - 3000:3000
+      - 443:443

@@ -4,6 +4,7 @@ RUN apt-get update -qq && \
     apt-get install -y build-essential \
             libyaml-dev \
             pkg-config \
+            libssl-dev \
             curl \
             git
             
