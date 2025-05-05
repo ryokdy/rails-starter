@@ -1,0 +1,15 @@
+version: '3'
+services:
+  rails:
+    build:
+      context: rails
+      dockerfile: Dockerfile_dev
+    tty: true
+    stdin_open: true
+    command: bin/rails server -b 0.0.0.0
+    env_file:
+      - ./environments/rails.env
+    volumes:
+      - ./rails:/rails:delegated
+    ports:
+      - 3000:3000
